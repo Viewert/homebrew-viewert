@@ -5,13 +5,13 @@
 class Viewert < Formula
   desc "Viewert CLI — sync Vellums, manage Librams, and expose an MCP server for Claude"
   homepage "https://viewert.com"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/viewert/cli/releases/download/v0.1.0/viewert_0.1.0_darwin_amd64.tar.gz"
-      sha256 "38e2959e34d517e14b21cb1d6a5e46ce4a7e9e3e4daf7474220dfbdf7a1abad4"
+      url "https://github.com/viewert/cli/releases/download/v0.1.1/viewert_0.1.1_darwin_amd64.tar.gz"
+      sha256 "3872ced5cd8b1c17240e7f1dc5e69f60c8327e9992de67195dc537ee83bf94fe"
 
       define_method(:install) do
         bin.install "viewert"
@@ -19,8 +19,8 @@ class Viewert < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/viewert/cli/releases/download/v0.1.0/viewert_0.1.0_darwin_arm64.tar.gz"
-      sha256 "f10dd06ad11b4143c513d3ce4c57c9828b6a3b17bb82eaa9b3a905dc5832cbfe"
+      url "https://github.com/viewert/cli/releases/download/v0.1.1/viewert_0.1.1_darwin_arm64.tar.gz"
+      sha256 "de1c0d949c946eb14f89debab81c9b7e35b1697a46376b765859005d9cfacf5d"
 
       define_method(:install) do
         bin.install "viewert"
@@ -31,16 +31,16 @@ class Viewert < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/viewert/cli/releases/download/v0.1.0/viewert_0.1.0_linux_amd64.tar.gz"
-      sha256 "9b497b248c41bae71c2780074dcfe545a700b35e026c8a77cc38b288c274ef79"
+      url "https://github.com/viewert/cli/releases/download/v0.1.1/viewert_0.1.1_linux_amd64.tar.gz"
+      sha256 "2e3843ecf8599acb09124eced22eb3aa59ff5ba8daf8697a50abfc7b3cd6d5fc"
       define_method(:install) do
         bin.install "viewert"
         bin.install "v"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/viewert/cli/releases/download/v0.1.0/viewert_0.1.0_linux_arm64.tar.gz"
-      sha256 "eefa66370f0da69faf5b826e1dbdf359139ac64953dd19cae6183c52e4cb3290"
+      url "https://github.com/viewert/cli/releases/download/v0.1.1/viewert_0.1.1_linux_arm64.tar.gz"
+      sha256 "fffb256e10c9219b891bd9a0035709a99ef1199bc43dcf2945226cbd431476dd"
       define_method(:install) do
         bin.install "viewert"
         bin.install "v"
