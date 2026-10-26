@@ -5,45 +5,57 @@
 class Viewert < Formula
   desc "Viewert CLI — sync Vellums, manage Librams, and expose an MCP server for Claude"
   homepage "https://viewert.com"
-  version "0.1.5"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/viewert/cli/releases/download/v0.1.5/viewert_0.1.5_darwin_amd64.tar.gz"
-      sha256 "eba807b8fc09d8b61ec124aca4520c3c24c30add31a0fcb7e41648ec29afc1e0"
+      url "https://github.com/viewert/cli/releases/download/v0.2.0/viewert_0.2.0_darwin_amd64.tar.gz"
+      sha256 "2cf0becd4fe9a6445b848a786f2606cde8f3814fd3e352c12e25408afcc22ca7"
 
       define_method(:install) do
         bin.install "viewert"
         bin.install "v"
+        bash_completion.install "completions/viewert.bash" => "viewert"
+        zsh_completion.install "completions/viewert.zsh" => "_viewert"
+        fish_completion.install "completions/viewert.fish" => "viewert.fish"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/viewert/cli/releases/download/v0.1.5/viewert_0.1.5_darwin_arm64.tar.gz"
-      sha256 "a97ee614327e043a60ee2baba9178c60fa3d6a88737067a36d30a488b48615e2"
+      url "https://github.com/viewert/cli/releases/download/v0.2.0/viewert_0.2.0_darwin_arm64.tar.gz"
+      sha256 "c5e42c418133a4d90866797869eca270c16c61016de4abbb8e367a2032613ac7"
 
       define_method(:install) do
         bin.install "viewert"
         bin.install "v"
+        bash_completion.install "completions/viewert.bash" => "viewert"
+        zsh_completion.install "completions/viewert.zsh" => "_viewert"
+        fish_completion.install "completions/viewert.fish" => "viewert.fish"
       end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/viewert/cli/releases/download/v0.1.5/viewert_0.1.5_linux_amd64.tar.gz"
-      sha256 "e685d511949c30bae9ca9007d8d5de81a1f0d71e10dd34870c2a7c77217f1e78"
+      url "https://github.com/viewert/cli/releases/download/v0.2.0/viewert_0.2.0_linux_amd64.tar.gz"
+      sha256 "c63a9abd3633f7950cc410ebdf65642e985bccd4b140583b27dabedf8122dfeb"
       define_method(:install) do
         bin.install "viewert"
         bin.install "v"
+        bash_completion.install "completions/viewert.bash" => "viewert"
+        zsh_completion.install "completions/viewert.zsh" => "_viewert"
+        fish_completion.install "completions/viewert.fish" => "viewert.fish"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/viewert/cli/releases/download/v0.1.5/viewert_0.1.5_linux_arm64.tar.gz"
-      sha256 "7c1b3f61342d6d01101f8ce6bb0de38ffd1e2c1e460602b3239ad0a6035d9292"
+      url "https://github.com/viewert/cli/releases/download/v0.2.0/viewert_0.2.0_linux_arm64.tar.gz"
+      sha256 "fa48d55aec593eeb323d2aef822f95ccc580dc9261cadf852ac94ddce8f3dc5e"
       define_method(:install) do
         bin.install "viewert"
         bin.install "v"
+        bash_completion.install "completions/viewert.bash" => "viewert"
+        zsh_completion.install "completions/viewert.zsh" => "_viewert"
+        fish_completion.install "completions/viewert.fish" => "viewert.fish"
       end
     end
   end
@@ -53,17 +65,14 @@ class Viewert < Formula
       To get started, log in to your Viewert account:
         v login
 
-      To sync your Vellums to a local folder:
-        v sync ~/my-vellums
+      To connect Claude, Cursor, VS Code and other AI tools to your Viewert:
+        v mcp install
 
-      To use with Claude Desktop/Code, add to your MCP config:
-        v mcp
+      To check that everything is set up:
+        v doctor
 
       Both `v` and `viewert` are installed — they are identical binaries.
-      Use whichever you prefer. All commands are available on both:
-        v login        (or: viewert auth login)
-        v ls           (or: viewert ls)
-        v sync <dir>   (or: viewert sync <dir>)
+      Use whichever you prefer. All commands are available on both.
     EOS
   end
 
